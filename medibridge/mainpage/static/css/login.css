@@ -1,0 +1,140 @@
+body {
+    background: linear-gradient(to right, #85d8ce, #085078);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.login-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #085078;
+    cursor: pointer;
+}
+
+.toggle-buttons .btn {
+    flex: 1;
+    font-size: 20px;
+    padding: 12px 20px;
+}
+
+.toggle-buttons .btn.active {
+    background-color: #085078;
+    color: #fff;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn-submit {
+    background-color: #085078;
+    color: white;
+    font-size: 18px;
+    padding: 14px 20px;
+    border-radius: 8px;
+}
+
+.btn-submit:hover {
+    background-color: #85d8ce;
+    color: #085078;
+}
+
+.forgot-link {
+    color: #085078;
+    text-decoration: underline;
+}
+
+.forgot-link:hover {
+    color: #85d8ce;
+}
+
+.social-login {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-login button {
+    flex: 1;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.social-login .btn-google {
+    background-color: #db4437;
+    color: white;
+}
+
+.social-login .btn-facebook {
+    background-color: #3b5998;
+    color: white;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #085078;
+    text-decoration: underline;
+}
+
+.register-link a:hover {
+    color: #85d8ce;
+}
+
+.toggle-buttons {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.login-card h3 {
+    margin-bottom: 30px;
+    color: #085078;
+    font-size: 28px;
+}
+
+.login-card .form-control:focus {
+    border-color: #085078;
+    box-shadow: 0 0 5px rgba(8, 80, 120, 0.5);
+}
+
+/* Adjust spacing between the form fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.login-card .form-control {
+    margin-bottom: 10px;
+}
+
+.form-control:focus {
+    border-color: #085078;
+    box-shadow: 0 0 8px rgba(8, 80, 120, 0.5);
+}

@@ -1,0 +1,64 @@
+{% extends 'pbase.html' %}
+{% block content %}
+<div class="container">
+    <div id="prescriptionForm" class="prescription-card mt-4" >
+        <h4 class="text-center">Add Prescription</h4>
+        <form method="POST" action="{% url 'patient_pres' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="medicationName" class="form-label">Medication Name</label>
+                <input type="text" class="form-control" name="medication" id="medicationName" placeholder="Enter medication name" required>
+            </div>
+            <div class="mb-3">
+                <label for="dosage" class="form-label">Dosage</label>
+                <input type="text" class="form-control" name="dosage" id="dosage" placeholder="Enter dosage" required>
+            </div>
+            <div class="mb-3">
+                <label for="instruction" class="form-label">Special Instructions</label>
+                <textarea class="form-control" id="instruction" name="instruction" rows="3" placeholder="Enter special instructions"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" name="date" id="date" placeholder="Enter date" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Prescription</button>
+        </form>
+    </div>
+
+    <!-- Prescription History -->
+    <div class="prescription-card mt-4">
+        <h4 class="text-center ">Prescription History</h4>
+        <table class="table table-bordered prescription-table">
+            <thead>
+                <tr>
+                    <th>Medication</th>
+                    <th>Dosage</th>
+                    <th>Special Instructions</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if pres %}
+                    {% for i in pres %}
+                    <tr>
+                        <td>{{i.medication_name}}</td>
+                        <td>{{i.dosage}}</td>
+                        <td>{{i.instruction}}</td>
+                        <td>{{i.date}}</td>
+                        <td>
+                            <a href="{% url 'edit_pres' i.id %}"><button class="btn btn-info btn-sm">Edit</button></a>
+                            <a href="{% url 'delete_pres' i.id %}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+               
+                
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</div>
+{% endblock %}

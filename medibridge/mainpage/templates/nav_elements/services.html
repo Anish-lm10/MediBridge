@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="services py-5 bg-light">
+    <div class="container">
+        <!-- Section Title -->
+        <h2 class="text-center mb-5">Our Services</h2>
+
+        <!-- Services Grid -->
+        <div class="row">
+            <!-- Patient Portal -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/patient.png' %}" height="350px"  class="card-img-top" alt="Patient Portal">
+                    <div class="card-body">
+                        <h3 class="card-title">Patient Portal</h3>
+                        <p class="card-text">
+                            Manage your health effortlessly with features like appointment booking, access to medical records, and secure communication with doctors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor Dashboard -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/doctor.png' %}" height="350px" class="card-img-top" alt="Doctor Dashboard">
+                    <div class="card-body">
+                        <h3 class="card-title">Doctor Dashboard</h3>
+                        <p class="card-text">
+                            Simplify daily workflows with tools for schedule management, patient record access, and digital prescription issuance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Telemedicine -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/tele.png' %}" height="350px" class="card-img-top" alt="Telemedicine Integration">
+                    <div class="card-body">
+                        <h3 class="card-title">Telemedicine</h3>
+                        <p class="card-text">
+                            Connect with doctors remotely through secure video consultations, bringing healthcare directly to your home.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prescription Management -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/precription.png' %}" height="350px" class="card-img-top" alt="Prescription Management">
+                    <div class="card-body">
+                        <h3 class="card-title">Prescription Management</h3>
+                        <p class="card-text">
+                            Access digital prescriptions instantly and forward them to pharmacies for quick and convenient medicine delivery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification System -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/notification.png' %}" height="350px" class="card-img-top" alt="Notification System">
+                    <div class="card-body">
+                        <h3 class="card-title">Notification System</h3>
+                        <p class="card-text">
+                            Stay informed with real-time updates, including appointment reminders, prescription alerts, and test result notifications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Gateway -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/payment.png' %}" height="350px" class="card-img-top" alt="Payment Gateway">
+                    <div class="card-body">
+                        <h3 class="card-title">Payment Gateway</h3>
+                        <p class="card-text">
+                            Enjoy seamless online payment options for consultations, tests, and treatments, with detailed payment history tracking.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-5">
+            <a href="{% url 'doctor_log_in' %}" class="btn btn-primary btn-lg">Get Started Today</a>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

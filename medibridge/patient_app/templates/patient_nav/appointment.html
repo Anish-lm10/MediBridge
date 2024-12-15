@@ -1,0 +1,42 @@
+{% extends 'pbase.html' %}
+{% block content %}
+<div class="appointment-container">
+    <h2>Book an Appointment</h2>
+    <form method="POST" action="{% url 'patient_appointment' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="doctor">Choose a Doctor</label>
+            <select id="doctor" name="doctor" required>
+                <option value="">Select a Doctor</option>
+                {% for doctor in doctors %}
+                    <option value="{{ doctor.id }}">Dr. {{ doctor.full_name }}, Specialization:{{doctor.specialization}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Appointment Date</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+            <label for="reason">Reason for Appointment</label>
+            <textarea id="reason" name="reason" rows="4" placeholder="Describe your reason for the appointment" required></textarea>
+        </div>
+        <input type="hidden" name="amt" value="140"> <!-- Appointment Fee -->
+        <input type="hidden" name="tAmt" value="150"> <!-- Total Amount -->
+        <input type="hidden" name="txAmt" value="10">   <!-- Tax Amount -->
+        <input type="hidden" name="psc" value="0">     <!-- Service Charge -->
+        <input type="hidden" name="pdc" value="0">     <!-- Delivery Charge -->
+        <input type="hidden" name="scd" value="EPAYTEST"> <!-- Merchant Code -->
+        <input type="hidden" name="pid" value="{{ unique_pid  }}"> <!-- Unique ID -->
+        <input type="hidden" name="su" value="{% url 'payment_success' %}"> <!-- Success URL -->
+        <input type="hidden" name="fu" value="{% url 'payment_failure' %}"> <!-- Failure URL -->
+        <button type="submit" class="submit-btn">Book Appointment</button>
+    </form>
+</div>
+
+
+{% endblock %}

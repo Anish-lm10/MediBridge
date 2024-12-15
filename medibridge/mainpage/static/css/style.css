@@ -1,0 +1,95 @@
+.navbar {
+    background-color: #007bff; /* Hospital-themed blue */
+  }
+  .navbar .nav-link, .navbar-brand {
+    color: #fff !important; /* White text for links */
+  }
+  .navbar .nav-link:hover {
+    color: #d1ecf1 !important; /* Light blue on hover */
+  }
+  .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+  }
+  .btn-outline-light:hover {
+    background-color: #fff;
+    color: #007bff;
+  }
+
+  
+
+  /* home css starts */
+
+  .hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 50px;
+    background-color: #f4f8fb;
+  }
+
+  /* Left side: Heading and Button */
+  .hero-text {
+    max-width: 50%;
+    color: #333;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .hero-text p {
+    font-size: 1.25rem;
+  }
+
+  .hero-text .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+  }
+
+  /* Right side: Images with light circle */
+  .hero-images {
+    position: relative;
+    max-width: 50%;
+  }
+
+  .hero-images img{
+    height: 90vh;
+    background: transparent;
+  }
+
+  /* Box Section Styles */
+  .feature-box {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .feature-box h2 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .feature-box p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  /* Quote Section Style */
+  .quote-section {
+    background-color: #f8f9fa;
+    padding: 50px;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.25rem;
+  }
+
+
+  /* home css ends */

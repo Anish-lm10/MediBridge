@@ -1,0 +1,121 @@
+{% extends 'dbase.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="mb-4">Manage Prescription</h3>
+
+    <!-- Patient Selection Form -->
+    <div class="patient-select">
+        <h5>Select Patient</h5>
+        <form method="POST" action="{% url 'doctor_prescription' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="patientSelect" class="form-label">Choose a Patient</label>
+                <select class="form-select" name="patientSelect" id="patientSelect">
+                    <option value="" selected>Select a patient</option>
+                     {% if patients %}
+                        {% for i in patients %}
+                            <option value="{{ i.patient.id }}">{{i.patient}}</option>
+                        {% endfor %}                        
+                     {% endif %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Load Patient Details</button>
+        </form>
+    </div>
+
+    <!-- <div id="prescriptionForm" class="prescription-card mt-4">
+        <h5>Add Prescription</h5>
+        <form method="POST" action="{% url 'doctor_prescription' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="medicationName" class="form-label">Medication Name</label>
+                <input type="text" class="form-control" name="medication" id="medicationName" placeholder="Enter medication name">
+            </div>
+            <div class="mb-3">
+                <label for="medicationName" class="form-label">Patient Email</label>
+                <input type="email" class="form-control" name="email" id="medicationName" placeholder="Enter patient email">
+            </div>
+            <div class="mb-3">
+                <label for="dosage" class="form-label">Dosage</label>
+                <input type="text" class="form-control" name="dosage" id="dosage" placeholder="Enter dosage">
+            </div>
+            <div class="mb-3">
+                <label for="instruction" class="form-label">Special Instructions</label>
+                <textarea class="form-control" name="instruction" id="instruction" rows="3" placeholder="Enter special instructions"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Prescription</button>
+        </form>
+    </div>  -->
+
+    <!-- Prescription History -->
+    <div class="prescription-card mt-4">
+        <h5>Prescription History</h5>
+        <table class="table table-bordered prescription-table">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Medication</th>
+                    <th>Dosage</th>
+                    <th>Special Instructions</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if pres %}
+                {% for i in pres %}
+                <tr>
+                    <td>{{i.patient}}</td>
+                    <td>{{i.medication_name}}</td>
+                    <td>{{i.dosage}}</td>
+                    <td>{{i.instruction}}</td>
+                    <td>{{i.date}}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr><td colspan="5">No prescriptions available for this patient.</td></tr>
+               {% endif %}
+              
+               
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Medical history -->
+    <div class="medical-history mt-5">
+        <h5>Medical History</h5>
+        <table class="table table-bordered text-center">
+            <thead class="table">
+                <tr>
+                    <th>Patient</th>
+                    <th>Date</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if medical %}
+                    {% for i in medical %}
+                    <tr>
+                        <td>{{i.patient}}</td>
+                        <td>{{i.date}}</td>
+                        <td>{{i.diagnosis}}</td>
+                        <td>{{i.treatment}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr><td colspan="5">No medical history available for this patient.</td></tr>
+                {% endif %}
+               
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- Add Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    
+{% endblock %}

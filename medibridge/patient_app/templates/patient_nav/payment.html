@@ -1,0 +1,36 @@
+{% extends 'pbase.html' %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Payment History
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th><a href="{% url 'delete_all_transaction' %}"><button class="btn bg-danger text-white">Delete All</button></a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if payments %}
+                        {% for i in payments %}
+                        <tr>
+                            <td>{{i.transaction_id}}</td>
+                            <td>{{i.created_at}}</td>
+                            <td>{{i.amount}}</td>
+                            <td><span class="payment-status paid">{{i.payment_status}}</span></td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

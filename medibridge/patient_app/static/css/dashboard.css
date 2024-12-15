@@ -1,0 +1,120 @@
+/* Wrap the entire dashboard in a container with a class of .patient-dashboard */
+.patient-dashboard {
+    max-width: 1200px;
+    margin-top: 50px;
+}
+
+/* Main Dashboard Cards */
+.patient-dashboard .card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.patient-dashboard .card-header {
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    padding: 15px;
+}
+
+.patient-dashboard .card-body {
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Profile Overview */
+.patient-dashboard .card-header.bg-primary {
+    background-color: #007bff;
+}
+
+.patient-dashboard .card-header.bg-info {
+    background-color: #17a2b8;
+}
+
+.patient-dashboard .card-header.bg-success {
+    background-color: #28a745;
+}
+
+.patient-dashboard .card-header.bg-warning {
+    background-color: #ffc107;
+}
+
+/* Card Content */
+.patient-dashboard .card-body p,
+.patient-dashboard .card-body ul,
+.patient-dashboard .card-body a {
+    font-size: 1rem;
+    color: #333;
+}
+
+.patient-dashboard .card-body a {
+    text-decoration: none;
+}
+
+/* List Group */
+.patient-dashboard .list-group-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.patient-dashboard .list-group-item .badge {
+    font-size: 0.85rem;
+}
+
+.patient-dashboard .list-group-item .badge.bg-success {
+    background-color: #28a745;
+}
+
+.patient-dashboard .list-group-item .badge.bg-warning {
+    background-color: #ffc107;
+}
+
+.patient-dashboard .list-group-item .badge.bg-info {
+    background-color: #17a2b8;
+}
+
+.patient-dashboard .list-group-item .badge.bg-primary {
+    background-color: #007bff;
+}
+
+/* Button Styling */
+.patient-dashboard .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.patient-dashboard .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.patient-dashboard .btn-warning {
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+}
+
+.patient-dashboard .btn-primary:hover, .patient-dashboard .btn-warning:hover {
+    opacity: 0.8;
+}
+
+/* Shadows */
+.patient-dashboard .shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .patient-dashboard {
+        padding: 15px;
+    }
+    .patient-dashboard .card {
+        margin-bottom: 15px;
+    }
+}

@@ -1,0 +1,38 @@
+{% extends 'dbase.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="mb-4">Add Prescription</h3>
+
+    <div id="prescriptionForm" class="prescription-card mt-4">
+        <form method="POST" action="{% url 'doctor_add_prescription' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="medicationName" class="form-label">Medication Name</label>
+                <input type="text" class="form-control" name="medication" id="medicationName" placeholder="Enter medication name">
+            </div>
+            <div class="mb-3">
+                <label for="medicationName" class="form-label">Patient Email</label>
+                <input type="email" class="form-control" name="email" id="medicationName" placeholder="Enter patient email">
+            </div>
+            <div class="mb-3">
+                <label for="dosage" class="form-label">Dosage</label>
+                <input type="text" class="form-control" name="dosage" id="dosage" placeholder="Enter dosage">
+            </div>
+            <div class="mb-3">
+                <label for="instruction" class="form-label">Special Instructions</label>
+                <textarea class="form-control" name="instruction" id="instruction" rows="3" placeholder="Enter special instructions"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Prescription</button>
+        </form>
+    </div> 
+
+
+</div>
+
+<!-- Add Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    
+{% endblock %}

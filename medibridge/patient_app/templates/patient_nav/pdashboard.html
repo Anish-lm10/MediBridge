@@ -1,0 +1,98 @@
+{% extends 'pbase.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Profile Overview -->
+        <div class="col-md-12 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4>Welcome, {{ user.email }}!</h4>
+                </div>
+                <div class="card-body">
+                    <p>Your health journey starts here. View and manage your profile, appointments, medical records, and more.</p>
+                    <a href="{% url 'doctors_lists' %}"><button class="btn btn-outline-danger">View Doctors</button></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5>Upcoming Appointments</h5>
+                </div>
+                <div class="card-body">
+                    {% for appoint in appoint %}
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>Dr. {{appoint.d_name}}</strong> | <em>{{doct.specialization}}</em> | <span class="badge bg-success">{{appoint.status}}</span>
+                            <p class="mb-0">Date: {{appoint.date}} | Time: {{appoint.time}}</p>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                       
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Records -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5>Medical Records</h5>
+                </div>
+                <div class="card-body">
+                    {% for records in records %}
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>{{records.diagnosis}}</strong> 
+                            <p class="mb-0">Date: {{records.date}}</p>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Settings -->
+        <div class="col-md-12 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-white">
+                    <h5>Doctor Added Prescription</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'clear_add_pres' %}"><button class="btn btn-danger">Clear All</button></a>
+                    <table class="table table-bordered text-center">
+                        <thead class="table">
+                            <tr>
+                                <th>Doctor</th>
+                                <th>Medication</th>
+                                <th>Dosage</th>
+                                <th>Special Instruction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if medical %}
+                                {% for i in medical %}
+                                <tr>
+                                    <td>{{i.doctors}}</td>
+                                    <td>{{i.dates}}</td>
+                                    <td>{{i.dosages}}</td>
+                                    <td>{{i.instructions}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% else %}
+                                <tr><td colspan="5">No medical history available for this patient.</td></tr>
+                            {% endif %}
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

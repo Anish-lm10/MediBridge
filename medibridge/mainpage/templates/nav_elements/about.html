@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="about-us py-5">
+    <div class="container text-center">
+        <h1 class="section-title mb-5 fw-bolder">About Us</h1>
+
+        <div class="row">
+            <!-- Mission Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/mission.png' %}" class="card-img-top" alt="Mission Image">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Our Mission</h5>
+                        <p class="card-text text-start">
+                            At MediBridge, our mission is to revolutionize the healthcare industry by providing accessible, 
+                            efficient, and patient-centered healthcare solutions. We aim to bridge the gap between patients 
+                            and healthcare providers by leveraging advanced technologies to streamline communication, 
+                            reduce costs, and ensure better outcomes for every individual. We strive to make healthcare 
+                            services more accessible, affordable, and personalized, ensuring that patients receive the best 
+                            care possible at every stage of their healthcare journey.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vision Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/vission.png' %}" class="card-img-top" alt="Vision Image">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Our Vision</h5>
+                        <p class="card-text text-start">
+                            Our vision is to create a healthcare ecosystem that puts the patient at the center of all 
+                            decisions, driven by data and technology. We aim to build a world where healthcare is seamless, 
+                            transparent, and personalized, allowing people to take charge of their health and well-being. 
+                            By integrating cutting-edge tools and artificial intelligence, we aspire to offer real-time, 
+                            evidence-based insights that empower healthcare providers to make better decisions, improve 
+                            treatment accuracy, and enhance patient experiences. Together, we envision a future where 
+                            healthcare is smarter, faster, and more compassionate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'images/team.png' %}" class="card-img-top" alt="Team Image">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Our Team</h5>
+                        <p class="card-text text-start">
+                            Our team is composed of a dynamic group of individuals who bring expertise from diverse 
+                            backgrounds, including healthcare, technology, business, and design. Our doctors, engineers, 
+                            data scientists, and innovators work together with a single goal in mind: to make healthcare 
+                            accessible, efficient, and impactful for everyone. We believe in collaboration and continuous 
+                            learning, pushing the boundaries of innovation to bring new ideas that will shape the future of 
+                            healthcare. Each team member is dedicated to making a positive impact, ensuring that our 
+                            mission and vision are realized every day in the solutions we create and the care we provide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

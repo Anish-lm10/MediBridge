@@ -1,0 +1,39 @@
+.about-us {
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.card {
+    border: none;
+    background-color: #ffffff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+    text-align: justify; /* Justifying the text */
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-img-top {
+    border-radius: 0.25rem;
+}

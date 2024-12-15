@@ -1,0 +1,20 @@
+{% extends 'dbase.html' %}
+{% block content %}
+<div class="container mt-5">
+    <!-- Video Consultation Section -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4>Video Consultation</h4>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-center mt-3">
+                <a href="{% url 'new_meeting' %}"><button class="btn btn-success me-3" id="new-meeting">New Meeting</button></a>
+                <a href="{% url 'doctor_join_meeting' %}"><button class="btn btn-primary" id="join-meeting">Join Meeting</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+{% endblock %}

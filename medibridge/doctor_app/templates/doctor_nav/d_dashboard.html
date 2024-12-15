@@ -1,0 +1,56 @@
+{% extends 'dbase.html' %}
+{% block content %}
+<div class="container mt-4 text-center">
+    <h3>Hi, Dr. {{ user.email }}</h3>
+    <p>Manage your appointments status, telemedicine sessions, and prescriptions below.</p>
+
+    <!-- Manage Appointments Section -->
+    <div class="appointment-section mt-4">
+        <h4>Edit Appointments Status</h4>
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="card mb-3 mx-3" style="width: 18rem;">
+                <div class="card-body">
+                    <!-- Mark as Available Button -->
+                    {% if doctors.is_available == False %}
+                    <form method="post" action="{% url 'mark_as_available' doctors.id %}">
+                        {% csrf_token %}
+                        <button class="btn btn-success w-100" type="submit">Mark as Available</button>
+                    </form>
+                    {% endif %}
+
+                    <!-- Mark as Unavailable Button -->
+                    {% if doctors.is_available == True %}
+                    <form method="post" action="{% url 'mark_as_unavailable' doctors.id %}">
+                        {% csrf_token %}
+                        <button class="btn btn-danger w-100" type="submit">Mark as Unavailable</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <!-- Telemedicine Section -->
+    <div class="telemedicine-section mt-4">
+        <h4>Telemedicine Sessions</h4>
+        <p>Start or join telemedicine sessions with your patients.</p>
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'doctor_telemedicine' %}"><button class="btn btn-primary">Start a Session</button></a>
+        </div>
+    </div>
+
+    <!-- Prescriptions Section -->
+    <div class="prescriptions-section mt-4">
+        <h4>Prescriptions</h4>
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="card mb-3 mx-3" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="{% url 'doctor_prescription' %}"><button class="btn btn-info w-100">View Paitent Prescription</button></a>
+                </div>
+            </div>
+            <!-- Repeat for more prescriptions -->
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediBridge | Register</title>
+    <!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+</head>
+<body>
+    <div class="register-card">
+        <!-- Close Icon to hide form -->
+        <a href="{% url 'home' %}"><span class="close-icon">&times;</span></a>
+        
+        <!-- Toggle Buttons -->
+        <div class="toggle-buttons mb-4">
+            <a href="{% url 'register_doctor' %}"><button class="btn btn-outline-primary {% if request.path == '/register_doctor' %}
+            active
+{% endif %}" id="doctor-btn" onclick="showDoctorForm()">Register as Doctor</button></a>
+            <a href="{% url 'register_patient' %}"><button class="btn btn-outline-primary {% if request.path == '/register_patient' %}
+            active
+{% endif %}" id="patient-btn" onclick="showPatientForm()">Register as Patient</button></a>
+        </div>
+
+        <!-- Patient Registration Form -->
+        <form id="patient-form" method="POST" action="{% url 'register_patient' %}">
+            {% csrf_token %}
+            <h3 class="text-center">Patient Registration</h3>
+            <div class="mb-3">
+                <label for="patient-name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="patient-name" id="patient-name" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+                <label for="patient-email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="pemail" id="patient-email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="patient-password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="patient-password" placeholder="Enter your password" required>
+            </div>
+            <div class="mb-3">
+                <label for="patient-password" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="cpassword" id="patient-password" placeholder="Enter your password" required>
+            </div>
+            <div class="mb-3">
+                <label for="patient-phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" name="number" id="patient-phone" placeholder="Enter your phone number" required>
+            </div>
+            <button type="submit" class="btn btn-submit w-100">Register</button>
+           
+        </form>
+
+        <div class="register-link">
+            <p>Already have an account? <a href="{% url 'doctor_log_in' %}">Login Here</a></p>
+        </div>
+    </div>
+
+    
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+    {% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'success' %}
+      <script>
+        alertify.set('notifier', 'position', 'top-right');
+        alertify.success('{{ message }}');
+      </script>
+    {% elif message.tags == 'error' %}
+      <script>
+        alertify.set('notifier', 'position', 'top-right');
+        alertify.error('{{ message }}');
+      </script>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+</body>
+</html>

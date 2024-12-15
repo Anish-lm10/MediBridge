@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <!-- Left side: Heading and Button -->
+    <div class="text-start text-md-center col-md-6">
+        <h1 class="display-4 fw-bold text-dark">Welcome to MediBridge</h1>
+        <p class="lead text-dark">Your trusted partner in healthcare solutions.</p>
+        <a href="{% url 'doctor_log_in' %}"><button class="btn btn-primary btn-lg mt-3">Get Started</button></a>
+      </div>
+
+    <!-- Right side: Images with light circle -->
+    <div class="hero-images d-none d-lg-block">
+      <img src="{% static 'images/bgdoctor.png' %}" alt="Doctor">
+    </div>
+   
+  </section>
+
+  <!-- Feature Boxes Section -->
+  <h1 class="text-center mt-4 fw-bolder">Total Trusted Users</h1>
+  <section class="container my-5">
+    <div class="row text-center">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="feature-box">
+          <h2>{{a_count}}+</h2>
+          <p>Appointments Scheduled</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="feature-box">
+          <h2>{{d_count}}+</h2>
+          <p>Doctors Registered</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="feature-box">
+          <h2>{{p_count}}+</h2>
+          <p>Patients Helped</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="quote-section bg-primary text-white py-5 mb-5">
+    <div class="container text-center">
+      <blockquote class="blockquote">
+        <p class="mb-4">"{{quote.quote}}"</p>
+        <footer class="blockquote-footer text-white">{{quote.author}}</footer>
+      </blockquote>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'pbase.html' %}
+{% block content %}
+<div class="section-title text-center fs-2 mt-3">Medical History</div>
+
+<!-- Form to Add Medical History -->
+<div class="medical-history-form mt-4">
+    <h4 class="text-center">Add New Medical History</h4>
+    <form method="post" action="{% url 'medical_report' %}">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="col-md-4">
+                <label for="diagnosis" class="form-label">Diagnosis</label>
+                <input type="text" class="form-control" id="diagnosis" name="diagnosis" required>
+            </div>
+            <div class="col-md-4">
+                <label for="treatment" class="form-label">Treatment</label>
+                <input type="text" class="form-control" id="treatment" name="treatment" required>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Add Entry</button>
+        </div>
+    </form>
+</div>
+
+<!-- Medical History Table -->
+<div class="medical-history mt-5">
+    <table class="table table-bordered text-center">
+        <thead class="table">
+            <tr>
+                <th>Date</th>
+                <th>Diagnosis</th>
+                <th>Treatment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if medical %}
+                {% for i in medical %}
+                <tr>
+                    <td>{{i.date}}</td>
+                    <td>{{i.diagnosis}}</td>
+                    <td>{{i.treatment}}</td>
+                    <td>
+                        <a href="{% url 'edit_medical' i.id %}"><button class="btn btn-warning btn-sm">Edit</button></a>
+                        <a href="{% url 'delete_medical' i.id %}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+           
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

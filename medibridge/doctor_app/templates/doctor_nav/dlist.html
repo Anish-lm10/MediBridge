@@ -1,0 +1,23 @@
+{% extends 'dbase.html' %}
+{% block content %}
+<div class="container mt-5">
+    <!-- Notification Header -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>All Notifications</h2>
+        <a href="{% url 'dclear_all_notification' %}"><button class="btn btn-danger btn-sm" id="clear-all">Clear All</button></a>
+    </div>
+
+    {% for i in notifications %}
+    <div id="notification-list" class="list-group">
+        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <div>
+                <h6 class="mb-1">{{i.message}}</h6>
+                <div class="timess">{{i.timestamp}}</div>
+               
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+   
+</div>
+{% endblock %}

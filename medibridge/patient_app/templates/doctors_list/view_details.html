@@ -1,0 +1,39 @@
+{% extends 'pbase.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Doctor Details</h1>
+    <div class="card shadow-sm">
+        {% if doctor %}
+        <div class="card-body">
+            <h3 class="card-title">Dr. {{doctor.full_name}}</h3>
+            <p class="text-muted">Specialization: {{doctor.specialization}}</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Email:</strong> {{doctor.email}}</li>
+                <li class="list-group-item"><strong>Specialization:</strong> {{doctor.specialization}}</li>
+                <li class="list-group-item"><strong>Certificate:</strong> 
+                    <a href="{{doctor.certificate.url}}" target="_blank">View Certificate</a>
+                </li>
+                <li class="list-group-item"><strong>Created At:</strong> {{doctor.created_at.date}}</li>
+                {% if doctor.verified %}
+                <li class="list-group-item">
+                    <strong>Verified:</strong> 
+                    <span class="badge bg-success">Verified</span>
+                </li>
+                {% else %}
+                <li class="list-group-item">
+                    <strong>Verified:</strong> 
+                    <span class="badge bg-danger">Not Verified</span>
+                </li>
+                {% endif %}
+                
+            </ul>
+            <div class="mt-4 text-end">
+                <a href="{% url 'doctors_lists' %}" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+            
+        {% endif %}
+        
+    </div>
+</div>
+{% endblock %}

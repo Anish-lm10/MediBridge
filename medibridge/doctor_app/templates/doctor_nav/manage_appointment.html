@@ -1,0 +1,44 @@
+{% extends 'dbase.html' %}
+{% block content %}
+<div class="container-fluid mt-4">
+    <h3 class="mb-4">Manage Appointments</h3>
+
+    <!-- Appointment List -->
+    <div class="appointment-card">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Patient Email</th>
+                    <th>Appointment Date</th>
+                    <th>Time</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if appoint %}
+                    {% for i in appoint %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.patient}}</td>
+                        <td>{{i.date}}</td>
+                        <td>{{i.time}}</td>
+                        <td>{{i.description}}</td>
+                        <td><span class="badge bg-warning">{{i.status}}</span></td>
+                        <td>
+                            <a href="{% url 'edit_appoint' i.id %}"><button class="btn btn-success">Edit</button></a>
+                            <a href="{% url 'delete_appoint' i.id %}"><button class="btn btn-danger">Remove</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+               
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}

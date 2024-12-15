@@ -1,0 +1,18 @@
+.navbar {
+    background-color: #007bff; /* Hospital-themed blue */
+  }
+  .navbar .nav-link, .navbar-brand {
+    color: #fff !important; /* White text for links */
+  }
+  .navbar .nav-link:hover {
+    color: #d1ecf1 !important; /* Light blue on hover */
+  }
+  .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+  }
+  .btn-outline-light:hover {
+    background-color: #fff;
+    color: #007bff;
+  }
+

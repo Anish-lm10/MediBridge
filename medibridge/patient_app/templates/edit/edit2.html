@@ -1,0 +1,29 @@
+{% extends 'pbase.html' %}
+{% block content %}
+<div class="container">
+    <div id="prescriptionForm" class="prescription-card mt-4" >
+        <h4 class="text-center">Edit Prescription</h4>
+        <form method="POST" action="{% url 'edit_pres' i.id %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="medicationName" class="form-label">Medication Name</label>
+                <input type="text" class="form-control" name="medication" value="{{i.medication_name}}" id="medicationName" placeholder="Enter medication name" required>
+            </div>
+            <div class="mb-3">
+                <label for="dosage" class="form-label">Dosage</label>
+                <input type="text" class="form-control" name="dosage" value="{{i.dosage}}" id="dosage" placeholder="Enter dosage" required>
+            </div>
+            <div class="mb-3">
+                <label for="instruction" class="form-label">Special Instructions</label>
+                <textarea class="form-control" id="instruction" name="instruction" rows="3" placeholder="Enter special instructions">{{i.instruction}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" name="date" value="{{i.date|date:'Y-m-d'}}" id="date" placeholder="Enter date" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Prescription</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
